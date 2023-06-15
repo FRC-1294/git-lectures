@@ -2,9 +2,13 @@
 
 - Just use your browser (e.g. Chrome or Edge) to open index.html 
 - It should work out-of-the-box 
-- The AI player plays first by drawing an **X** to the screen 
-- The Human player plays by click, to draw an **O** on one of the empty cell
-- Whoever gets 3 **X** or 3 **O** in a line first wins
+
+- The AI player plays first by drawing an **X** to 1 of the 9 cells on the screen 
+
+- The Human player plays by mouse clicking on one of the empty cells to draw an **O**
+
+- Whoever gets 3 **Xs** or 3 **Os** first wins
+
 - If you see *"not allowed to load local resource"* javascript error, use the instruction in section 3 to fix
 
 # 2- Student Assigment
