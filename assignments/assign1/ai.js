@@ -6,8 +6,7 @@ function aiMove() {
     for (let j = 0; j < 3; j++) {      
       if (board[i][j] == '') {        
         board[i][j] = ai;
-        // Simulate humans's rational move
-        let score = minimax(board, false);
+        let score = minimax(board, 0, false);
         board[i][j] = '';
         if (score > bestScore) {
           bestScore = score;  
@@ -22,7 +21,7 @@ function aiMove() {
 }
 
 const scores = { X: 1, O: -1, tie: 0 };
-function minimax(board, scoreMaximizer) {
+function minimax(board, depth, scoreMaximizer) {
   const result = findWinner();
   if (result != null) return scores[result];  
     
@@ -32,9 +31,9 @@ function minimax(board, scoreMaximizer) {
       for (let j = 0; j < 3; j++) {
         if (board[i][j] == '') { 
           board[i][j] = ai;
-          let score = minimax(board, false);
+          let score = minimax(board, depth+1, false);
           board[i][j] = '';
-          bestScore = max(score, bestScore);
+          bestScore = min(score, bestScore);
         }
       }
     }
@@ -45,9 +44,9 @@ function minimax(board, scoreMaximizer) {
       for (let j = 0; j < 3; j++) {
         if (board[i][j] == '') { 
           board[i][j] = human;
-          let score = minimax(board, true);
+          let score = minimax(board, depth+1, true);
           board[i][j] = '';
-          bestScore = min(score, bestScore);
+          bestScore = max(score, bestScore);
         }
       }
     }
