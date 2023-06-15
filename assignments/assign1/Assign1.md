@@ -1,13 +1,13 @@
 # 1- How to play AI-based tic-tac-toe
 
-- Just use your browser (e.g. Chrome or Edge) to open index.html 
+- Use your browser (e.g. Chrome, Edge or Firefox) to open index.html file 
 - It should work out-of-the-box 
 
 - The AI player plays first by drawing an **X** to 1 of the 9 cells on the screen 
 
-- The Human player plays by mouse clicking on one of the empty cells to draw an **O**
+- The Human player plays by clicking on one of the empty cells to draw an **O**
 
-- Whoever gets 3 **Xs** or 3 **Os** first wins
+- Whoever gets 3 **Xs** or 3 **Os** -- in a line -- first wins
 
 - If you see *"not allowed to load local resource"* javascript error, use the instruction in section 3 to fix
 
@@ -15,7 +15,7 @@
 
 There is a bug in **ai.js** file. The defect prevent the AI player to win all the time. This assignment ask students to fix it in his/her own git branch. The expected workflow is
 
-- Use **git clone command** to fet the latest code from [https://github.com/FRC-1294/git-lectures](https://github.com/FRC-1294/git-lectures)
+- Use **git clone command** to fetch the latest code from [https://github.com/FRC-1294/git-lectures](https://github.com/FRC-1294/git-lectures)
 
         git clone git@github.com:FRC-1294/git-lectures.git assign1
 
