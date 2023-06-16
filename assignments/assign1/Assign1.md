@@ -1,15 +1,14 @@
 # 1- How to play AI-based tic-tac-toe
 
-- Use your browser (e.g. Chrome, Edge or Firefox) to open index.html file 
-- It should work out-of-the-box 
+- Use your browser to open index.html file. On windows and Mac doube-click on assignments\assign1\index.html file should work 
 
-- The AI player plays first by drawing an **X** to 1 of the 9 cells on the screen 
+- The tic-tac-toe program should work out-of-the-box 
+
+- The AI player plays first by drawing an **X** on 1 of the 9 cells
 
 - The Human player plays by clicking on one of the empty cells to draw an **O**
 
 - Whoever gets 3 **Xs** or 3 **Os** -- in a line -- first wins
-
-- If you see *"not allowed to load local resource"* javascript error, use the instruction in section 3 to fix
 
 # 2- Student assigment #1
 
@@ -53,20 +52,9 @@ Push your <your_name>/assign1 branch to GitHub
         git push 
 
 Merge your change in the <your_name>/assign1 branch back to main branch locally
-        
-        See https://git-scm.com/docs/git-merge
-        
-# 3 "not allowed to load local resource" error
 
-**index.html** should work out-of-the-box in windows, Mac or Linux filesystem. However if you see the javascript error, you can install a light web server and host the index.html to resolve the issue. Here are concrete steps:
+        git checkout main
+        git merge thanh/assign1
 
-- [Install Node.js](https://nodejs.org/en/download)
-- Install a light web server (e.g. http-server node.js package)
-    
-        npm install -g http-server
 
-- Open terminal/console, cd to the folder where the index.html is located and start the **http-server**
-
-        http-server ./
-
-- Type this address --  http://localhost:8080 -- to your browser
+> To learn more about git merge see https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
