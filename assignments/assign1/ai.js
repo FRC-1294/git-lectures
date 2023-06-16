@@ -33,7 +33,7 @@ function minimax(board, scoreMaximizer) {
           board[i][j] = ai;
           let score = minimax(board, false);
           board[i][j] = '';
-          bestScore = min(score, bestScore);
+          bestScore = max(score, bestScore);
         }
       }
     }
@@ -46,7 +46,7 @@ function minimax(board, scoreMaximizer) {
           board[i][j] = human;
           let score = minimax(board, true);
           board[i][j] = '';
-          bestScore = max(score, bestScore);
+          bestScore = min(score, bestScore);
         }
       }
     }
