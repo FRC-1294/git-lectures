@@ -17,7 +17,7 @@ function maxScore(board) {
     for (let j = 0; j < 3; j++) {      
       if (board[i][j] == '') {        
         board[i][j] = ai;
-        let score = minScore(board).bestScore;
+        let score = maxScore(board).bestScore;
         board[i][j] = '';
         if (score > bestScore) {
           bestScore = score;
@@ -41,7 +41,7 @@ function minScore(board) {
     for (let j = 0; j < 3; j++) {      
       if (board[i][j] == '') {        
         board[i][j] = human;
-        let score = maxScore(board).bestScore;
+        let score = minScore(board).bestScore;
         board[i][j] = '';
         if (score < bestScore) {
           bestScore = score;

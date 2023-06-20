@@ -73,25 +73,24 @@ function draw() {
 }
 
 function findWinner() {
-  let winner = null;
   for (let i = 0; i < 3; i++) {
     if (e3(board[i][0], board[i][1], board[i][2])) {
-      winner = board[i][0];
+      return board[i][0];
     }
   }
 
   for (let j = 0; j < 3; j++) {
     if (e3(board[0][j], board[1][j], board[2][j])) {
-      winner = board[0][j];
+      return board[0][j];
     }
   }
 
   if (e3(board[0][0], board[1][1], board[2][2])) {
-    winner = board[0][0];
+    return board[0][0];
   }
   
   if (e3(board[2][0], board[1][1], board[0][2])) {
-    winner = board[2][0];
+    return board[2][0];
   }
   
   let openSpots = 0;
@@ -103,11 +102,11 @@ function findWinner() {
     }
   }
   
-  if (winner == null && openSpots == 0) {
+  if (openSpots == 0) {
     return 'tie';
-  } else {
-    return winner;  
-  }  
+  } 
+
+  return null;  
 }
 
 function e3(a, b, c) {
