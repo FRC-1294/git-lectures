@@ -35,8 +35,8 @@ def actions(board):
     Returns set of all possible actions (i, j) available on the board.
     """
     _actions = []
-    for i in range(0, 3):
-        for j in range(0, 3):
+    for i in range(3):
+        for j in range(3):
             if board[i][j] == EMPTY:
                 _actions.append((i, j))
     return _actions
@@ -45,9 +45,8 @@ def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """    
-    _player = player(board)
-    i, j = action    
-    board[i][j] = _player
+    i, j = action
+    board[i][j] = player(board)
     return board
 
 def equal3(a, b, c):
@@ -74,7 +73,8 @@ def winner(board):
     frequencies = [Counter(row) for row in board]
     countEmpty = sum([counter[EMPTY] for counter in frequencies])
     if countEmpty == 0:
-        return Tie    
+        return Tie
+    
     return None
 
 def terminal(board):
@@ -83,6 +83,7 @@ def terminal(board):
     """
     if winner(board) is None:
         return False
+        
     return True
 
 
@@ -97,15 +98,14 @@ def maxValue(board):
         return (utility(board), None)
 
     bestScore, move = -math.inf, None
-    for i in range(len(board)):
-        for j in range(len(board[i])):
-            if board[i][j] == EMPTY:
-                board[i][j] = X
-                score = minValue(board)[0]
-                board[i][j] = EMPTY
-                if score > bestScore:
-                    bestScore = score
-                    move = (i, j)
+    for (i, j) in actions(board):
+        board[i][j] = X
+        score = minValue(board)[0]
+        board[i][j] = EMPTY
+        if score > bestScore:
+            bestScore = score
+            move = (i, j)
+
     return (bestScore, move)
 
 def minValue(board):
@@ -113,15 +113,14 @@ def minValue(board):
         return (utility(board), None)
         
     bestScore, move = math.inf, None
-    for i in range(len(board)):
-        for j in range(len(board[i])):
-            if board[i][j] == EMPTY:
-                board[i][j] = O
-                score = maxValue(board)[0]
-                board[i][j] = EMPTY
-                if score < bestScore:
-                    bestScore = score
-                    move = (i, j)
+    for (i, j) in actions(board):
+        board[i][j] = O
+        score = maxValue(board)[0]
+        board[i][j] = EMPTY
+        if score < bestScore:
+            bestScore = score
+            move = (i, j)
+            
     return (bestScore, move)
 
 def minimax(board):
