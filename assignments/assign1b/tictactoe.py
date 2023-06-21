@@ -26,7 +26,7 @@ def player(board):
     countX = sum([counter[X] for counter in frequencies])
     countO = sum([counter[O] for counter in frequencies])
 
-    if (countX <= countO):
+    if countX <= countO:
         return X    
     return O
 
@@ -50,28 +50,29 @@ def result(board, action):
     return board
 
 def equal3(a, b, c):
-     return a == b and b == c and a != EMPTY
+     return a == b and b == c and a is not EMPTY
 
 def winner(board):
     """
     Returns the winner of the game, if there is one.
     """
     for i in range(3): 
-        if (equal3(board[i][0], board[i][1], board[i][2])):
+        if equal3(board[i][0], board[i][1], board[i][2]):
             return board[i][0]
     
     for j in range(3): 
-        if (equal3(board[0][j], board[1][j], board[2][j])):
+        if equal3(board[0][j], board[1][j], board[2][j]):
             return board[0][j]
     
-    if (equal3(board[0][0], board[1][1], board[2][2])):
+    if equal3(board[0][0], board[1][1], board[2][2]):
         return board[0][0]
 
-    if (equal3(board[0][2], board[1][1], board[2][0])):
+    if equal3(board[0][2], board[1][1], board[2][0]):
         return board[0][2]
   
     frequencies = [Counter(row) for row in board]
     countEmpty = sum([counter[EMPTY] for counter in frequencies])
+
     if countEmpty == 0:
         return Tie
     
@@ -81,12 +82,8 @@ def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
-    if winner(board) is None:
-        return False
-        
-    return True
-
-
+    return winner(board) is not None
+    
 def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
