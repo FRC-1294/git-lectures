@@ -25,6 +25,7 @@ function maxScore(board) {
     let {i, j} = action;  
     board[i][j] = ai;
     let score = minScore(board).bestScore;
+    //weeee
     board[i][j] = '';
     if (score > bestScore) {
       bestScore = score;
