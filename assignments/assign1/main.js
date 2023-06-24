@@ -11,11 +11,17 @@ let player = ai;
 let w;
 let h;
 
+let countMinScores = 0;
+let countMaxScores = 0;
+
+let calls = {countMinScores, countMaxScores};
+
+
 function setup() {
   createCanvas(400, 400);
   w = width / 3;
   h = height / 3;
-  aiMove();
+  aiMove(calls);
 }
 
 function mousePressed() {
@@ -26,7 +32,7 @@ function mousePressed() {
     if (board[i][j] == '') {
       board[i][j] = human;
       player = ai;
-      aiMove();
+      aiMove(calls);
     }    
   }
 }
@@ -65,9 +71,9 @@ function draw() {
     let resultText = createP('');
     resultText.style('font-size', '32pt');
     if (result == 'tie') {
-      resultText.html('Tie!');      
+      resultText.html(`(${calls.countMinScores}, ${calls.countMaxScores}) - Tie!`);
     } else {
-      resultText.html(`${result} wins!`);
+      resultText.html(`(${calls.countMinScores}, ${calls.countMaxScores}) - ${result} wins!`);
     }        
   }
 }
