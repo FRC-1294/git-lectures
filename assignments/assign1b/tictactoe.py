@@ -69,20 +69,22 @@ def winner(board):
 
     if equal3(board[0][2], board[1][1], board[2][0]):
         return board[0][2]
-  
-    frequencies = [Counter(row) for row in board]
-    countEmpty = sum([counter[EMPTY] for counter in frequencies])
-
-    if countEmpty == 0:
-        return Tie
-    
+      
     return None
 
 def terminal(board):
     """
     Returns True if game is over, False otherwise.
     """
-    return winner(board) is not None
+    if winner(board) is not None:
+        return True
+    
+    frequencies = [Counter(row) for row in board]
+    countEmpty = sum([counter[EMPTY] for counter in frequencies])
+    if countEmpty == 0:
+        return True
+
+    return False
     
 def utility(board):
     """
