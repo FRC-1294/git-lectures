@@ -11,11 +11,14 @@ let player = ai;
 let w;
 let h;
 
+let alpha = -Infinity;
+let beta = Infinity;
+
 function setup() {
   createCanvas(400, 400);
   w = width / 3;
   h = height / 3;
-  aiMove();
+  aiMove(alpha, beta);
 }
 
 function mousePressed() {
@@ -26,7 +29,7 @@ function mousePressed() {
     if (board[i][j] == '') {
       board[i][j] = human;
       player = ai;
-      aiMove();
+      aiMove(alpha, beta);
     }    
   }
 }
