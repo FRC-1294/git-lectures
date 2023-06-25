@@ -1,6 +1,6 @@
 const scores = { X: 1, O: -1, tie: 0 };
-function aiMove(alpha, beta) {
-  let move = maxScore(board, alpha, beta).move;
+function aiMove(alpha, beta, calls) {
+  let move = maxScore(board, alpha, beta, calls).move;
   board[move.i][move.j] = ai;
   player = human;
 }
@@ -13,7 +13,8 @@ function actions(board) {
   return emptySpots;
 }
 
-function maxScore(board, alpha, beta) {
+function maxScore(board, alpha, beta, calls) {
+  calls.countMaxScores++;
   let bestScore = -Infinity, move = null;
   const winner = findWinner();
   if (winner != null) {
@@ -24,7 +25,7 @@ function maxScore(board, alpha, beta) {
   for (const action of actions(board)) {
     let {i, j} = action;  
     board[i][j] = ai;
-    let score = minScore(board, alpha, beta).bestScore;
+    let score = minScore(board, alpha, beta, calls).bestScore;
     board[i][j] = '';
     if (score > bestScore) {
       bestScore = score;
@@ -39,7 +40,8 @@ function maxScore(board, alpha, beta) {
   return {bestScore, move};
 }
 
-function minScore(board, alpha, beta) {
+function minScore(board, alpha, beta, calls) {
+  calls.countMinScores++;
   let bestScore = Infinity, move = null;
   const winner = findWinner();  
   if (winner != null) {
@@ -50,7 +52,7 @@ function minScore(board, alpha, beta) {
   for (const action of actions(board)) {
     let {i, j} = action;  
     board[i][j] = human;
-    let score = maxScore(board, alpha, beta).bestScore;
+    let score = maxScore(board, alpha, beta, calls).bestScore;
     board[i][j] = '';
     if (score < bestScore) {
       bestScore = score;
