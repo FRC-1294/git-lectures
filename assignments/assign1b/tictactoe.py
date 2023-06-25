@@ -90,7 +90,11 @@ def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
     """
-    return scores[winner(board)]
+    player = winner(board)
+    if player is None:        
+        return scores[Tie]
+
+    return scores[player]
     
 def maxValue(board):
     if (terminal(board)):

@@ -14,7 +14,7 @@ white = (255, 255, 255)
 screen = pygame.display.set_mode(size)
 
 mediumFont = pygame.font.Font("OpenSans-Regular.ttf", 28)
-largeFont = pygame.font.Font("OpenSans-Regular.ttf", 40)
+largeFont = pygame.font.Font("OpenSans-Regular.ttf", 30)
 moveFont = pygame.font.Font("OpenSans-Regular.ttf", 60)
 
 user = None
