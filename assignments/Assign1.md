@@ -1,6 +1,7 @@
 # 1- How to play AI-based tic-tac-toe
+- Navigate to `git-lectures/assignments/tic-tac-toe-js` folder
 
-- Use your browser to open index.html file. On windows and Mac doube-click on assignments\assign1\index.html file should work 
+- Use your browser to open index.html file. On windows and Mac doube-click on `assignments\tic-tac-toe-js\index.html` file should work 
 
 - The tic-tac-toe program should work out-of-the-box 
 
@@ -12,7 +13,7 @@
 
 # 2- Student assigment #1
 
-There is a bug in **ai.js** file. The defect prevent the AI player to win all the time. This assignment ask students to fix it in his/her own git branch.
+There is a bug in `tic-tac-toe-js/ai.js` file. The defect prevent the AI player to win all the time. This assignment ask students to fix it in his/her own git branch.
 
 The below **git clone** command uses **ssh** protocol. Students might want to check if they already have a pair of public/private keys on local computer -- pair of files named something like **id_rsa** and **id_rsa.pub** in **~/.ssh** directory
 
@@ -43,9 +44,9 @@ Then create a bug-fix branch. Please branch off from latest commit in **main** b
 
         git checkout main 
         git pull 
-        git checkout -b thanh/assign1
+        git checkout -b <your_name>/assign1
 
-Fix the bug inside **ai.js** and test it - make sure the AI player never lose to the human player
+Fix the bug inside `tic-tac-toe-js/ai.js` and test it - make sure the AI player never lose to the human player
 
 Push your <your_name>/assign1 branch to GitHub
 
@@ -54,7 +55,6 @@ Push your <your_name>/assign1 branch to GitHub
 Merge your change in the <your_name>/assign1 branch back to main branch locally
 
         git checkout main
-        git merge thanh/assign1
-
+        git merge <your_name>/assign1
 
 > To learn more about git merge see https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
