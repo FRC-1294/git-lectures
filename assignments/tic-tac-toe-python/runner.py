@@ -100,7 +100,7 @@ while True:
         # Show title
         if game_over:
             winner = ttt.winner(board)
-            stats = "({count1}, {count2})".format(count1 = calls["maxValue"], count2 = calls["minValue"])
+            stats = f"({calls['maxValue']}, {calls['minValue']})"
             if winner is None:
                 title = f"Game Over: {stats}: Tie."
             else:
