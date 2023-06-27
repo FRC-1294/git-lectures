@@ -1,6 +1,14 @@
 const scores = { X: 1, O: -1, tie: 0 };
+
+
 function aiMove() {
-  let move = maxScore(board).move;
+
+  // Use alpha–beta pruning to fix the performance issue 
+  // https://en.wikipedia.org/wiki/Alpha-beta_pruning
+  let alpha = -Infinity;
+  let beta = Infinity;
+
+  let move = maxScore(board, alpha, beta).move;
   board[move.i][move.j] = ai;
   player = human;
 }
@@ -13,7 +21,7 @@ function actions(board) {
   return emptySpots;
 }
 
-function maxScore(board) {
+function maxScore(board, alpha, beta) {
   let bestScore = -Infinity, move = null;
   const winner = findWinner();
   if (winner != null) {
@@ -24,19 +32,21 @@ function maxScore(board) {
   for (const action of actions(board)) {
     let {i, j} = action;  
     board[i][j] = ai;
-    let score = minScore(board).bestScore;
-    //weeee
+    let score = minScore(board, alpha, beta).bestScore;
+    
     board[i][j] = '';
     if (score > bestScore) {
       bestScore = score;
       move = {i, j};
+      alpha = Math.max(alpha, bestScore);
+      if (alpha >= beta) break;
     }
   }
 
   return {bestScore, move};
 }
 
-function minScore(board) {
+function minScore(board, alpha, beta) {
   let bestScore = Infinity, move = null;
   const winner = findWinner();  
   if (winner != null) {
@@ -47,11 +57,13 @@ function minScore(board) {
   for (const action of actions(board)) {
     let {i, j} = action;  
     board[i][j] = human;
-    let score = maxScore(board).bestScore;
+    let score = maxScore(board, alpha, beta).bestScore;
     board[i][j] = '';
     if (score < bestScore) {
       bestScore = score;
       move = {i, j};
+      beta = Math.min(beta, bestScore);
+      if (alpha >= beta) break;
     }
   }
 
