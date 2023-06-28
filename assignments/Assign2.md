@@ -2,9 +2,9 @@
 
 In this assignment you will checkout 2 branches from  [git-lectures repo](https://github.com/FRC-1294/git-lectures) and create 2 corresponding local branches on your computer.
 
-- One branch has the code to measure the performance of the `aiMove()` function. aiMove() implements the logic of the AI player for the tic-tac-toe game. 
+- One branch has the code to measure the performance of the `aiMove()` function. aiMove() implements the logic that the AI player uses to play tic-tac-toe game. 
 
-- The other branch has the code to improve the performance of the `aiMove()`. aiMove() implements the logic of the AI player for the game.
+- The other branch has the code to improve the performance of the `aiMove()` using [Alpha-beta pruning](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning) algorithm.
 
 **To start the assignment 2:**
 
@@ -20,9 +20,14 @@ In this assignment you will checkout 2 branches from  [git-lectures repo](https:
         git clone git@github.com:FRC-1294/git-lectures.git assign2
         cd ~/assign2
 
-You can choose to work either on `Assign 2A` or `Assign 2B`
-- If you are familiar with Javascript, work on Assign 2A 
-- If you are familiar with Python, work on Assign 2B
+>>You can choose to work either on `Assign 2A` or `Assign 2B`
+>>- If you are familiar with Javascript, work on Assign 2A 
+>>- If you are familiar with Python, work on Assign 2B
+
+- Once you complete Assign 2A or Assign 2B, point your browser to [https://github.com/FRC-1294/git-lectures](https://github.com/FRC-1294/git-lectures) to see your new pushed branch. 
+
+>> Click on the `Compare & pull request` button to create your PR
+>> ![](PR.PNG)
 
 # Assign 2A
 
@@ -30,11 +35,14 @@ You can choose to work either on `Assign 2A` or `Assign 2B`
 
         git checkout assign2A/MeasurePerformance
         git checkout assign2A/FixPerformanceProblem
+        git branch 
 
 - Checkout main and create new branch `<your_name>/assign2A`
 
         git checkout main
         git checkout -b <your_name>/assign2A
+        git status
+        git log --graph --decorate --oneline
 
 - Merge `assign2A/MeasurePerformance` into your new `<your_name>/assign2A` branch
 
@@ -43,7 +51,8 @@ You can choose to work either on `Assign 2A` or `Assign 2B`
         # Expecting no merge conflict
         git merge assign2A/MeasurePerformance
 
-        git clean -fd .
+        git status
+        git log --graph --decorate --oneline
 
 - Use a browser (Edge or Chrome) to open `git-lectures/assignments/tic-tac-toe-js/index.html` file. You can use File Explorer to double click on tic-tac-toe-js/index.html file to run the game .
 
@@ -51,13 +60,13 @@ You can choose to work either on `Assign 2A` or `Assign 2B`
         # to a file, perf.txt, and add the file to the repo
         echo "(261965, 295527)" >> perf.txt
         git add perf.txt
-        git commit -m "Number of function calls before merging the fix."
+        git commit -m "Record # function calls before merging the fix."
 
 - Merge `assign2A/FixPerformanceProblem` into `<your_name>/assign2A` branch
 
         git checkout <your_name>/assign2A
 
-        # Expects merge conflicts 
+        # Expecting merge conflicts 
         git merge assign2A/FixPerformanceProblem
 
         > You should see `CONFLICT (content): Merge conflict in assignments/tic-tac-toe-js/ai.js`
@@ -79,6 +88,10 @@ You can choose to work either on `Assign 2A` or `Assign 2B`
 
         # git merge --continue will open an editor. To exit, type :x!
         git merge --continue
+
+        git status
+        git log --graph --decorate --oneline
+
 - Run `git push` to push <your_name>/assign2A branch to GitHub
 
 # Assign 2B
@@ -89,11 +102,14 @@ You can choose to work either on `Assign 2A` or `Assign 2B`
 
         git checkout assign2B/MeasurePerformance
         git checkout assign2B/FixPerformanceProblem
+        git branch 
 
 - Checkout main and create new branch `<your_name>/assign2B`
 
         git checkout main
         git checkout -b <your_name>/assign2A
+        git status
+        git log --graph --decorate --oneline
 
 - Merge `assign2B/MeasurePerformance` into your new `<your_name>/assign2B` branch
 
@@ -101,8 +117,8 @@ You can choose to work either on `Assign 2A` or `Assign 2B`
 
         # Expecting no merge conflict
         git merge assign2B/MeasurePerformance
-
-        git clean -fd .
+        git status
+        git log --graph --decorate --oneline
 
 - Run `python runner.py` to test and record the number of function calls to perf.txt
 > Before running `python runner.py`, make sure you install the pygame package by running `pip install -r requirements.txt` 
@@ -113,11 +129,11 @@ You can choose to work either on `Assign 2A` or `Assign 2B`
         python runner.py
 
         # Complete a full tic-tac-toe game
-        # the record the number of function calls to perf.txt
+        # then record the number of function calls to perf.txt
         echo "(261965, 295527)" >> perf.txt
 
         git add perf.txt
-        git commit -m "Number of function calls before merging the fix."
+        git commit -m "Record # function calls before merging the fix."
 
 - Merge `assign2B/FixPerformanceProblem` into `<your_name>/assign2B` branch
 
@@ -147,6 +163,10 @@ You can choose to work either on `Assign 2A` or `Assign 2B`
 
         # git merge --continue will open an editor. To exit, type :x!
         git merge --continue
+
+        git status
+        git log --graph --decorate --oneline
+
 - Run `git push` to push <your_name>/assign2B branch to GitHub
 
 # References 
