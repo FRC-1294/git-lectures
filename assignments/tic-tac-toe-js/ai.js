@@ -1,3 +1,4 @@
+//Vaibhav's Version 
 const scores = { X: 1, O: -1, tie: 0 };
 function aiMove() {
   let move = maxScore(board).move;
