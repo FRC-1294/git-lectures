@@ -1,10 +1,11 @@
-//Vaibhav's Version 
+
 const scores = { X: 1, O: -1, tie: 0 };
 function aiMove() {
   let move = maxScore(board).move;
   board[move.i][move.j] = ai;
   player = human;
 }
+//it tells the ai to move when a human plays
 
 function actions(board) {
   let emptySpots = [];
@@ -21,7 +22,7 @@ function maxScore(board) {
     bestScore = scores[winner];
     return {bestScore, move};
   }
-
+//this will return the score for the winner.
   for (const action of actions(board)) {
     let {i, j} = action;  
     board[i][j] = ai;
@@ -33,7 +34,7 @@ function maxScore(board) {
       move = {i, j};
     }
   }
-
+//this sets the value of score
   return {bestScore, move};
 }
 
