@@ -1,4 +1,4 @@
-//Vaibhav's Version 
+//Jonathan's Version 
 const scores = { X: 1, O: -1, tie: 0 };
 function aiMove() {
   let move = maxScore(board).move;
@@ -38,7 +38,7 @@ function maxScore(board) {
 }
 
 function minScore(board) {
-  let bestScore = Infinity, move = null;
+  /* hehe */ let bestScore = -Infinity, move = null;
   const winner = findWinner();  
   if (winner != null) {
     bestScore = scores[winner];
