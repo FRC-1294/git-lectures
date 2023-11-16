@@ -24,7 +24,7 @@ function maxScore(board) {
   for (const action of actions(board)) {
     let {i, j} = action;  
     board[i][j] = ai;
-    let score = maxScore(board).bestScore;
+    let score = minScore(board).bestScore;
     //weeee
     board[i][j] = '';
     if (score > bestScore) {
@@ -47,7 +47,7 @@ function minScore(board) {
   for (const action of actions(board)) {
     let {i, j} = action;  
     board[i][j] = human;
-    let score = minScore(board).bestScore;
+    let score = maxScore(board).bestScore;
     board[i][j] = '';
     if (score < bestScore) {
       bestScore = score;
