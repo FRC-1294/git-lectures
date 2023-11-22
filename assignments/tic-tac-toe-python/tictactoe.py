@@ -96,45 +96,59 @@ def utility(board):
 
     return scores[player]
     
-def maxValue(board):
+def maxValue(board, calls):
+    calls["maxValue"] +=1
     if (terminal(board)):
         return (utility(board), None)
 
     bestScore, move = -math.inf, None
     for (i, j) in actions(board):
         board[i][j] = X
-        score = minValue(board)[0]
+        score = minValue(board, calls)[0]
+        score = minValue(board, alpha, beta)[0]
         board[i][j] = EMPTY
         if score > bestScore:
             bestScore = score
             move = (i, j)
+            alpha = max(alpha, bestScore)
+            if alpha >= beta:
+                break
 
     return (bestScore, move)
 
-def minValue(board):
+def minValue(board, calls):
+    calls["minValue"] +=1
+def minValue(board, alpha, beta):
     if (terminal(board)):
         return (utility(board), None)
         
     bestScore, move = math.inf, None
     for (i, j) in actions(board):
         board[i][j] = O
-        score = maxValue(board)[0]
+        score = maxValue(board, calls)[0]
+        score = maxValue(board, alpha, beta)[0]
         board[i][j] = EMPTY
         if score < bestScore:
             bestScore = score
             move = (i, j)
+            beta = min(beta, bestScore)
+            if alpha >= beta:
+                break
             
     return (bestScore, move)
 
-def minimax(board):
+def minimax(board, calls):
     """
     Returns the optimal action for the current player on the board.
     """
     if terminal(board):
         return None
-    
+
+    alpha = -math.inf
+    beta = math.inf
+
     currentPlayer = player(board)
     if currentPlayer == X:
-        return maxValue(board)[1]
+        return maxValue(board, alpha, beta)[1]
     else:
-        return minValue(board)[1]
+        return minValue(board, alpha, beta)[1]
