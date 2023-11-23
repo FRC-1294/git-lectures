@@ -21,6 +21,11 @@ user = None
 board = ttt.initial_state()
 ai_turn = False
 
+# Storing number of function calls to maxValue and minValue functions
+countMaxValues = 0
+countMinValues = 0
+calls = {"maxValue": countMaxValues, "minValue": countMinValues}
+
 while True:
 
     for event in pygame.event.get():
@@ -95,10 +100,11 @@ while True:
         # Show title
         if game_over:
             winner = ttt.winner(board)
+            stats = f"({calls['maxValue']}, {calls['minValue']})"
             if winner is None:
-                title = f"Game Over: Tie."
+                title = f"Game Over: {stats}: Tie."
             else:
-                title = f"Game Over: {winner} wins."
+                title = f"Game Over: {stats}: {winner} wins."
         elif user == player:
             title = f"Play as {user}"
         else:
@@ -112,7 +118,7 @@ while True:
         if user != player and not game_over:
             if ai_turn:
                 time.sleep(0.5)
-                move = ttt.minimax(board)
+                move = ttt.minimax(board, calls)
                 board = ttt.result(board, move)
                 ai_turn = False
             else:
