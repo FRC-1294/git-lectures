@@ -6,6 +6,7 @@ function aiMove() {
   player = human;
 }
 
+// Finds open spots that the ai can place an x
 function actions(board) {
   let emptySpots = [];
   for (let i = 0; i < 3; i++)
@@ -14,18 +15,23 @@ function actions(board) {
   return emptySpots;
 }
 
+//If the game is not over it
 function maxScore(board) {
   let bestScore = -Infinity, move = null;
+
+  // Check if previous move won the game
   const winner = findWinner();
   if (winner != null) {
     bestScore = scores[winner];
     return {bestScore, move};
   }
 
+  // If no winner yet, decide AI's move
   for (const action of actions(board)) {
     let {i, j} = action;  
     board[i][j] = ai;
-    let score = maxScore(board).bestScore;
+    //let score = maxScore(board).bestScore;
+    let score = minScore(board).bestScore;
     //weeee
     board[i][j] = '';
     if (score > bestScore) {
@@ -37,6 +43,8 @@ function maxScore(board) {
   return {bestScore, move};
 }
 
+
+//
 function minScore(board) {
   let bestScore = Infinity, move = null;
   const winner = findWinner();  
@@ -48,7 +56,8 @@ function minScore(board) {
   for (const action of actions(board)) {
     let {i, j} = action;  
     board[i][j] = human;
-    let score = minScore(board).bestScore;
+    //let score = minScore(board).bestScore;
+    let score = maxScore(board).bestScore;
     board[i][j] = '';
     if (score < bestScore) {
       bestScore = score;
