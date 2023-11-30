@@ -1,0 +1,45 @@
+*   [33m451f253[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mAvivChatterjee/assign2A[m[33m, [m[1;31morigin/winston_luo/assign1[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/Prajeet_Srinivasan/assign1[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31morigin/AvivChatterjee/assign1[m[33m, [m[1;32mmain[m[33m)[m Merge remote-tracking branch 'refs/remotes/origin/main'
+[31m|[m[32m\[m  
+[31m|[m *   [33m8fdff3a[m Merge https://github.com/FRC-1294/git-lectures into Vaibhav/assign1
+[31m|[m [33m|[m[34m\[m  
+[31m|[m [33m|[m * [33mcda6ece[m Wednesday
+* [33m|[m [34m|[m [33m37c4eec[m Wednesday
+[33m|[m[33m/[m [34m/[m  
+* [34m/[m [33m942590b[m Created a new branch
+[34m|[m[34m/[m  
+* [33mfacff77[m Update Assign2 to include instruction to create PR
+* [33m783b5d4[m Expand main lectures and add a prerequisite lecture.
+* [33m0be357f[m Create assign2 for students to practice.
+* [33m8074cb4[m Update lecture note to point to MIT Git lecture.
+* [33m4e29e8e[m Restructure assignments.
+* [33me2eb094[m Fix utility function.
+* [33mc97f049[m Fix winner and terminal functions.
+*   [33mc871bdd[m Merge pull request #6 from FRC-1294/teja/assign1
+[35m|[m[36m\[m  
+[35m|[m * [33md7152ea[m[33m ([m[1;31morigin/teja/assign1[m[33m)[m added comments for clarity
+[35m|[m * [33m7e34f45[m fixed bug with min/max issues
+* [36m|[m   [33me6b970a[m Merge pull request #5 from FRC-1294/geeknoid/newfile
+[36m|[m[1;32m\[m [36m\[m  
+[36m|[m [1;32m|[m[36m/[m  
+[36m|[m[36m/[m[1;32m|[m   
+[36m|[m * [33m4bccfb0[m[33m ([m[1;31morigin/geeknoid/newfile[m[33m)[m Add useless file
+[36m|[m[36m/[m  
+* [33m1f395c6[m Late Tuesday.
+* [33m90659d8[m Refactor ai.js to simplify minScore and maxScore.
+* [33m13cc2a3[m Clean up README and tictactow.py
+* [33m5075697[m Clean up tictactoe.py
+* [33m195132b[m Add material for lecture 1 in READMe.md
+* [33m629a16b[m Optimze findWinner function.
+* [33mdfcbde4[m Add python version of the tic-tac-toe.
+* [33m1f52a16[m Refactor minimax function
+* [33m8464a1f[m Add path planning assignment
+* [33mec24208[m Update README file
+* [33m7e661bc[m Update instruction for assigment 1.
+* [33m7c323ed[m Update instruction for assigment 1.
+* [33m1c14ad5[m Fix typos.
+* [33mf9b7638[m Update the assignment description.
+* [33m6b4f015[m Create assignment 1 for students.
+* [33m2020049[m Clean up ai.js code
+* [33m1c1b554[m Add depth to minimax to measure the dept of the tree.
+* [33m2842e18[m Add working code for ai-based tic-tac-toe
+* [33m1752cf5[m Initial commit
