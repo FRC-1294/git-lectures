@@ -1,4 +1,4 @@
-const scores = { X: 1, O: -1, tie: 0 }; // changed the score values for AI and Player
+const scores = { X: 1, O: -1, tie: 0 };
 
 function aiMove() {
   let move = maxScore(board).move;
@@ -15,7 +15,7 @@ function actions(board) {
 }
 
 function maxScore(board) {
-  let bestScore = -Infinity, move = null;
+  let bestScore = Infinity, move = null;
   const winner = findWinner();
   if (winner != null) {
     bestScore = scores[winner];
@@ -38,7 +38,7 @@ function maxScore(board) {
 }
 
 function minScore(board) {
-  let bestScore = Infinity, move = null;
+  let bestScore = -Infinity, move = null; //I think
   const winner = findWinner();  
   if (winner != null) {
     bestScore = scores[winner];
