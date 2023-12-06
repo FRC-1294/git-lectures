@@ -1,5 +1,5 @@
-//Vaibhav's Version 
-const scores = { X: 1, O: -1, tie: 0 };
+const scores = { X: 1, O: -1, tie: 0 }; // changed the score values for AI and Player
+
 function aiMove() {
   let move = maxScore(board).move;
   board[move.i][move.j] = ai;
