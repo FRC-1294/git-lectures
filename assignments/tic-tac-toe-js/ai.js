@@ -1,7 +1,7 @@
 //Vaibhav's Version 
 const scores = { X: 1, O: -1, tie: 0 };
-function aiMove() {
-  let move = maxScore(board).move;
+function aiMove(calls) {
+  let move = maxScore(board, calls).move;
   board[move.i][move.j] = ai;
   player = human;
 }
@@ -14,7 +14,8 @@ function actions(board) {
   return emptySpots;
 }
 
-function maxScore(board) {
+function maxScore(board, calls) {
+  calls.countMaxScores++;
   let bestScore = -Infinity, move = null;
   const winner = findWinner();
   if (winner != null) {
@@ -25,7 +26,7 @@ function maxScore(board) {
   for (const action of actions(board)) {
     let {i, j} = action;  
     board[i][j] = ai;
-    let score = maxScore(board).bestScore;
+    let score = minScore(board).bestScore;
     //weeee
     board[i][j] = '';
     if (score > bestScore) {
@@ -37,7 +38,8 @@ function maxScore(board) {
   return {bestScore, move};
 }
 
-function minScore(board) {
+function minScore(board, calls) {
+  calls.countMinScores++;
   let bestScore = Infinity, move = null;
   const winner = findWinner();  
   if (winner != null) {
@@ -48,7 +50,7 @@ function minScore(board) {
   for (const action of actions(board)) {
     let {i, j} = action;  
     board[i][j] = human;
-    let score = minScore(board).bestScore;
+    let score = maxScore(board).bestScore;
     board[i][j] = '';
     if (score < bestScore) {
       bestScore = score;
