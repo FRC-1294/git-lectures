@@ -26,13 +26,8 @@ function maxScore(board, calls) {
   for (const action of actions(board)) {
     let {i, j} = action;  
     board[i][j] = ai;
-<<<<<<< HEAD
-    let score = maxScore(board).bestScore;
+    let score = minScore(board).bestScore;
     //weeee
-=======
-    let score = minScore(board, calls).bestScore;
-    
->>>>>>> assign2A/MeasurePerformance
     board[i][j] = '';
     if (score > bestScore) {
       bestScore = score;
@@ -55,11 +50,7 @@ function minScore(board, calls) {
   for (const action of actions(board)) {
     let {i, j} = action;  
     board[i][j] = human;
-<<<<<<< HEAD
-    let score = minScore(board).bestScore;
-=======
-    let score = maxScore(board, calls).bestScore;
->>>>>>> assign2A/MeasurePerformance
+    let score = maxScore(board).bestScore;
     board[i][j] = '';
     if (score < bestScore) {
       bestScore = score;
